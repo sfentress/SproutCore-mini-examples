@@ -11,11 +11,17 @@ Example.mainPage = SC.Page.design({
   // Add childViews to this pane for views to display immediately on page 
   // load.
   mainPane: SC.MainPane.design({
-    childViews: 'appContainer'.w(),
+    childViews: 'instructions appContainer'.w(),
+    
+    instructions: SC.LabelView.design(SC.StaticLayout, {
+      layout: { top: 5, left: 5},
+			useStaticLayout: YES,
+			value: "Type a couple letters in the text field. Note the alerts. After two characters, view will switch to second text field. Alerts will no longer appear."
+		}),
     
     appContainer: SC.ContainerView.design({
       isContainerView: YES,
-      layout: { top: 36, bottom: 32, left: 50, right: 0 },
+      layout: { top: 50, left: 50},
       contentView: SC.TextFieldView.design({
         layout: {left: 20, top: 20, width: 500, height: 24},
         isTextArea: YES,
